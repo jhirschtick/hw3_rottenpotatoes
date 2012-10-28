@@ -143,10 +143,8 @@ Then /^I should see none of the movies/ do
 end
 
 Then /^I should see all of the movies/ do
-  debugger
-  count = page.body.scan("More about").size
-###  page.body =~ /(More about)10/
-  10 == count
+  count = page.body.scan(/movies\/\d+/).size
+  assert (count == 10)
 end
 
 Then /^the "([^"]*)" field(?: within (.*))? should contain "([^"]*)"$/ do |field, parent, value|
