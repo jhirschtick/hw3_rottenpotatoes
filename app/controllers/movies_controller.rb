@@ -26,8 +26,8 @@ class MoviesController < ApplicationController
       session[:ratings] = @selected_ratings
       redirect_to :sort => sort, :ratings => @selected_ratings and return
     end
-### 26Oct12 JKH Error in cs169x version when run in browser??!!??!    @movies = Movie.find_all_by_rating(@selected_ratings.keys, ordering)
-    @movies = Movie.find_all_by_rating(@selected_ratings, ordering)
+    @movies = Movie.find_all_by_rating(@selected_ratings.keys, ordering)
+### 26Oct12 JKH Error in cs169x version when run in browser??!!??! -- had to change line to this version to get it to work...later had to change it back...maybe something that was fixed with db:test:prepare or something...    @movies = Movie.find_all_by_rating(@selected_ratings, ordering)
   end
 
   def new
